@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import LoginPage from '../../pages/login.page';
 import HomePage from '../../pages/home.page';
 import RecordPage from '../../pages/record.page';
@@ -5,7 +7,7 @@ import RecordPage from '../../pages/record.page';
 describe('Community', () => {
     it('should login successfully', async () => {
         await LoginPage.open();
-        await LoginPage.login('jasonf+test@nebulaconsulting.co.uk', 'Partnerexp1!');
+        await LoginPage.login(process.env.COMMUNITY_USERNAME, process.env.COMMUNITY_PASSWORD);
 
         await expect(HomePage.getContentCaption).toHaveTextContaining('Welcome');
         await expect(HomePage.getContentTitle).toHaveText('Jason Fung');
