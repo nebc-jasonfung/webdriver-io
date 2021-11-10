@@ -1,7 +1,7 @@
 name: Schedule WebdriverIO
 on:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,13 +12,13 @@ jobs:
         with:
           node-version: 16.3.0
       - name: Create env file
-      run: |
-        cat << EOF > .env
-          TESTINGBOT_KEY=${{ secrets.TESTINGBOT_KEY }}
-          TESTINGBOT_SECRET=${{ secrets.TESTINGBOT_SECRET }}
-          COMMUNITY_USERNAME=${{ secrets.COMMUNITY_USERNAME }}
-          COMMUNITY_PASSWORD=${{ secrets.COMMUNITY_PASSWORD }}
-        EOF
+        run: |
+          cat << EOF > .env
+            TESTINGBOT_KEY=${{ secrets.TESTINGBOT_KEY }}
+            TESTINGBOT_SECRET=${{ secrets.TESTINGBOT_SECRET }}
+            COMMUNITY_USERNAME=${{ secrets.COMMUNITY_USERNAME }}
+            COMMUNITY_PASSWORD=${{ secrets.COMMUNITY_PASSWORD }}
+          EOF
       - name: Install
         run: npm install
       - name: Test
