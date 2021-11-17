@@ -22,7 +22,7 @@ describe('Home page', () => {
 
         await expect(RecordPage.getAccordionTitle).toBeElementsArrayOfSize(3);
         await RecordPage.getAccordionTitle.forEach(element => expect(element)
-            .toHaveTextContaining(['Partner Brief Info', 'Opportunity Info', 'Rejection Information']));
+            .toHaveText(['Partner Brief Info', 'Opportunity Info', 'Rejection Information']));
     });
 });
 
